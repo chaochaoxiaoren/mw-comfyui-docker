@@ -1,6 +1,6 @@
 services:
   comfyui:
-    image: ghcr.io/chaochaoxiaoren/mw-comfyui-docker:v0.33.3-v4
+    image: ghcr.io/chaochaoxiaoren/mw-comfyui-docker:latest
     container_name: comfyui
     environment:
       COMFY_PORT: 8188
