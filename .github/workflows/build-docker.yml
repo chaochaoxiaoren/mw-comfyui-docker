@@ -16,7 +16,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-        # 新增：清理runner磁盘，释放空间
       - name: Free disk space
         run: |
           df -h
