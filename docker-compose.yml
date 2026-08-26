@@ -1,10 +1,10 @@
 services:
   comfyui:
-    image: mw-comfyui:0.0.2
+    image: ghcr.io/chaochaoxiaoren/mw-comfyui-docker:v0.33.3-v4
     container_name: comfyui
     environment:
       COMFY_PORT: 8188
-      COMFY_GPU_MODE: high
+      COMFY_GPU_MODE: lowvram
     ports:
       - "8188:8188"
     volumes:
