@@ -1,5 +1,5 @@
 # 基础镜像：PyTorch2.4 CUDA12.4 cudnn9‑devel
-FROM pytorch/pytorch:2.4.0-cuda12.4-cudnn9-devel
+FROM pytorch/pytorch:2.4.0-cuda12.4-cudnn9-runtime
 
 ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
