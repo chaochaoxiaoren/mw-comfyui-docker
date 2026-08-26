@@ -31,7 +31,7 @@ trusted-host = pypi.tuna.tsinghua.edu.cn
 EOF
 
 # 2. 拉取ComfyUI v0.33.3 release版本，浅克隆
-RUN git clone --depth 1 --branch v0.33.3 https://github.tbap.top/https://github.com/comfyanonymous/ComfyUI.git .
+RUN git clone --depth 1 --branch v0.33.3 https://github.com/comfyanonymous/ComfyUI.git .
 
 # 3.ComfyUI本体python依赖，自动读取上面pip.conf走清华源
 RUN pip install --upgrade pip && \
@@ -39,12 +39,12 @@ RUN pip install --upgrade pip && \
 
 # 4.自定义节点插件
 RUN mkdir -p custom_nodes && cd custom_nodes && \
-    git clone https://github.tbap.top/https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet.git && \
-    git clone https://github.tbap.top/https://github.com/kijai/ComfyUI-KJNodes.git && \
+    git clone https://github.com/Kosinkadink/ComfyUI-Advanced-ControlNet.git && \
+    git clone https://github.com/kijai/ComfyUI-KJNodes.git && \
     cd ComfyUI-KJNodes && pip install -r requirements.txt && cd .. && \
-    git clone https://github.tbap.top/https://github.com/cubiq/ComfyUI_IPAdapter_plus.git && \
-    git clone https://github.tbap.top/https://github.com/pythongosssss/ComfyUI-Custom-Scripts.git && \
-    git clone https://github.tbap.top/https://github.com/ltdrdata/ComfyUI-Manager.git && \
+    git clone https://github.com/cubiq/ComfyUI_IPAdapter_plus.git && \
+    git clone https://github.com/pythongosssss/ComfyUI-Custom-Scripts.git && \
+    git clone https://github.com/ltdrdata/ComfyUI-Manager.git && \
     cd ComfyUI-Manager && pip install -r requirements.txt
 
 # 预创建目录

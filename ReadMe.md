@@ -1,5 +1,5 @@
 # 构建
-docker build -t mw-comfyui:0.0.2 .
+构建操作放在github，由github action打包镜像，只有打包tag的时候触发，tag是什么版本镜像就是什么版本
 
 # 容器
 docker compose up -d
