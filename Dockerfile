@@ -4,7 +4,9 @@ FROM pytorch/pytorch:2.4.0-cuda12.4-cudnn9-devel
 ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
     PIP_NO_CACHE_DIR=1 \
-    COMFYUI_PATH=/ComfyUI
+    COMFYUI_PATH=/ComfyUI \
+    COMFY_PORT=8188 \
+    COMFY_GPU_MODE=auto
 
 WORKDIR /ComfyUI
 
@@ -56,6 +58,10 @@ RUN mkdir -p \
     output \
     temp
 
-EXPOSE 8188
+# ==========复制外部脚本到镜像内==========
+COPY start.sh /ComfyUI/start.sh
+RUN chmod +x /ComfyUI/start.sh
 
-CMD ["python", "main.py", "--listen", "0.0.0.0", "--port", "8188"]
+EXPOSE ${COMFY_PORT}
+
+CMD ["/ComfyUI/start.sh"]

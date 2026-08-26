@@ -1,7 +1,10 @@
 services:
   comfyui:
-    image: mw-comfyui:0.0.1
+    image: mw-comfyui:0.0.2
     container_name: comfyui
+    environment:
+      COMFY_PORT: 8188
+      COMFY_GPU_MODE: high
     ports:
       - "8188:8188"
     volumes:

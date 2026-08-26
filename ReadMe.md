@@ -1,5 +1,5 @@
 # 构建
-docker build -t mw-comfyui:0.0.1 .
+docker build -t mw-comfyui:0.0.2 .
 
 # 容器
 docker compose up -d
