@@ -4,3 +4,4 @@ node_modules
 models
 custom_nodes
 output
+npm-cache
