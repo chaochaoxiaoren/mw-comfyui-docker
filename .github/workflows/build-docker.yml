@@ -6,7 +6,7 @@ on:
       - 'v*'
 
 env:
-  GHCR_REPO: ghcr.io/${{ github.repository_owner }}/comfyui
+  GHCR_REPO: ghcr.io/${{ github.repository_owner }}/mw-comfyui-docker
 
 jobs:
   build:
