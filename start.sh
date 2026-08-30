@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-EXTRA_ARGS="--listen 0.0.0.0 --port ${COMFY_PORT}"
+EXTRA_ARGS="--listen 0.0.0.0 --multi-user --port ${COMFY_PORT}"
 
 case "${COMFY_GPU_MODE}" in
 high)
@@ -14,7 +14,7 @@ novram)
     EXTRA_ARGS="${EXTRA_ARGS} --novram"
     ;;
 cpu)
-    EXTRA_ARGS="${EXTRA_ARGS} --cpu-mode"
+    EXTRA_ARGS="${EXTRA_ARGS} --cpu"
     ;;
 auto)
     ;;

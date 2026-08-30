@@ -1,5 +1,5 @@
-# 基础镜像
-FROM pytorch/pytorch:2.5.1-cuda12.4-cudnn9-runtime
+# GTX1060 算力6.1 最高CUDA12.6，使用devel镜像自带编译工具
+FROM pytorch/pytorch:2.7.0-cuda12.6-cudnn9-devel
 
 ENV DEBIAN_FRONTEND=noninteractive \
     PYTHONUNBUFFERED=1 \
@@ -10,7 +10,7 @@ ENV DEBIAN_FRONTEND=noninteractive \
 
 WORKDIR /ComfyUI
 
-# 1.系统依赖层
+# devel镜像自带gcc/g++，仅安装图像/视频系统依赖
 RUN apt-get update && apt-get install -y --no-install-recommends \
     git \
     wget \
@@ -23,17 +23,14 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ffmpeg \
     && rm -rf /var/lib/apt/lists/*
 
-# 2. 拉取ComfyUI v0.33.3 release版本，浅克隆
 RUN git clone --depth 1 --branch v0.33.3 https://github.com/comfyanonymous/ComfyUI.git .
 
-# 3.ComfyUI本体python依赖，自动读取上面pip.conf走清华源
 RUN pip install --upgrade pip && \
-    pip install -r requirements.txt
+    pip install -r requirements.txt && \
+    pip install opencv-python
 
-# ==========复制外部脚本到镜像内==========
 COPY start.sh /ComfyUI/start.sh
 RUN chmod +x /ComfyUI/start.sh
 
 EXPOSE ${COMFY_PORT}
-
 CMD ["/ComfyUI/start.sh"]
