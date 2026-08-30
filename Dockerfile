@@ -1,4 +1,4 @@
-# GTX1060 算力6.1 最高CUDA12.6，使用devel镜像自带编译工具
+# pytorch:2.7.0 CUDA12.6，使用devel镜像自带编译工具
 FROM pytorch/pytorch:2.7.0-cuda12.6-cudnn9-devel
 
 ENV DEBIAN_FRONTEND=noninteractive \
